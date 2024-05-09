@@ -1,11 +1,12 @@
 import {useState} from 'react';
-import Board from './Board/Board';
+import Player from "./AI/Player/Player"
+import AIBoard from './AI/AIBoard';
 
 export default function Game(){
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
   const currentSquares = history[currentMove];
-  const player = currentMove%2 === 0 ? 'X' : 'O';
+  const [player, setPlayer] = useState(null);
   
   function jumpTo(nextMove){
     setCurrentMove(nextMove);
@@ -41,11 +42,12 @@ export default function Game(){
   return (
     <div className="game">
       <div className="game-board">
-        <Board player={player} squares={currentSquares} onPlay={handlePlay} />
+        <Player player={player} setPlayer={setPlayer}/>
+        <AIBoard player={player} squares={currentSquares} onPlay={handlePlay} />
       </div>
       <div className="game-info">
         <ol>
-          {moves}
+          {player ? moves : []}
         </ol>
       </div>
     </div>

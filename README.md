@@ -1,5 +1,7 @@
 
-This project was return from scratch in [React](https://react.dev)
+# TicTacToe Game - AI
+
+This project was written from scratch in [React](https://react.dev)
 
 ## Available Scripts
 
