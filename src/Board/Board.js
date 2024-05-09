@@ -1,7 +1,7 @@
 import Square from "./Square/Square";
 import "./Board.css";
 
-export default function Board({player, squares, onPlay}) {
+export default function Board({player, squares, onPlay, onAutoMove}) {
 
     function handleClick(i){
       if(!player || squares[i] || calculateWinner(squares)){ 
@@ -10,6 +10,7 @@ export default function Board({player, squares, onPlay}) {
     
       const nextSquares = squares.slice();
       nextSquares[i] = player;
+      onAutoMove(nextSquares, player, calculateWinner);
       onPlay(nextSquares);
     }
   
@@ -19,7 +20,7 @@ export default function Board({player, squares, onPlay}) {
       status =  "Winner: " + winner;
     }
     else{
-      status = "Next player: " + player;
+      status = "Next player: " + (player ? player : "Select a Player");
     }
   
     const board = [];

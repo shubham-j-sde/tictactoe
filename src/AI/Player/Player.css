@@ -1,0 +1,11 @@
+.select-player button{
+    height: 34px;
+    width: 70px;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    margin-right: 15px;
+    padding: 0;
+    text-align: center;
+}
